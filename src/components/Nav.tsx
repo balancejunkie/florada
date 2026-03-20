@@ -2,18 +2,20 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-
-const links = [
-  { href: "#inicio", label: "Início" },
-  { href: "#historia", label: "Nossa História" },
-  { href: "#galeria", label: "Galeria" },
-  { href: "#midia", label: "Na Mídia" },
-  { href: "#contato", label: "Contato" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Nav() {
+  const { locale, t, toggleLocale } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const links = [
+    { href: "#inicio", label: t.nav.home },
+    { href: "#historia", label: t.nav.story },
+    { href: "#galeria", label: t.nav.gallery },
+    { href: "#midia", label: t.nav.media },
+    { href: "#contato", label: t.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -49,7 +51,7 @@ export default function Nav() {
           </span>
         </a>
 
-        {/* Desktop links */}
+        {/* Desktop links + language toggle */}
         <div className="hidden md:flex items-center gap-8">
           {links.map((link) => (
             <a
@@ -62,42 +64,66 @@ export default function Nav() {
               {link.label}
             </a>
           ))}
+          <button
+            onClick={toggleLocale}
+            className={`text-xs font-semibold tracking-wider px-3 py-1.5 rounded-full border transition-all duration-300 hover:bg-honey hover:text-earth hover:border-honey ${
+              scrolled
+                ? "text-cream/80 border-cream/30"
+                : "text-white/80 border-white/30"
+            }`}
+            aria-label="Toggle language"
+          >
+            {locale === "pt" ? "EN" : "PT"}
+          </button>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden flex flex-col gap-1.5 p-2"
-          aria-label="Menu"
-        >
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${
-              menuOpen
-                ? "rotate-45 translate-y-2 bg-honey"
-                : scrolled
-                  ? "bg-cream"
-                  : "bg-white"
+        <div className="md:hidden flex items-center gap-3">
+          <button
+            onClick={toggleLocale}
+            className={`text-xs font-semibold tracking-wider px-2.5 py-1 rounded-full border transition-all duration-300 ${
+              scrolled
+                ? "text-cream/80 border-cream/30"
+                : "text-white/80 border-white/30"
             }`}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${
-              menuOpen
-                ? "opacity-0"
-                : scrolled
-                  ? "bg-cream"
-                  : "bg-white"
-            }`}
-          />
-          <span
-            className={`block w-6 h-0.5 transition-all duration-300 ${
-              menuOpen
-                ? "-rotate-45 -translate-y-2 bg-honey"
-                : scrolled
-                  ? "bg-cream"
-                  : "bg-white"
-            }`}
-          />
-        </button>
+            aria-label="Toggle language"
+          >
+            {locale === "pt" ? "EN" : "PT"}
+          </button>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="flex flex-col gap-1.5 p-2"
+            aria-label="Menu"
+          >
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${
+                menuOpen
+                  ? "rotate-45 translate-y-2 bg-honey"
+                  : scrolled
+                    ? "bg-cream"
+                    : "bg-white"
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${
+                menuOpen
+                  ? "opacity-0"
+                  : scrolled
+                    ? "bg-cream"
+                    : "bg-white"
+              }`}
+            />
+            <span
+              className={`block w-6 h-0.5 transition-all duration-300 ${
+                menuOpen
+                  ? "-rotate-45 -translate-y-2 bg-honey"
+                  : scrolled
+                    ? "bg-cream"
+                    : "bg-white"
+              }`}
+            />
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
