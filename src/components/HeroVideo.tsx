@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 // [hevc 4K original, h264 4K fallback]
 const VIDEOS = [
@@ -15,39 +15,65 @@ function supportsHevc(): boolean {
   return v.canPlayType('video/mp4; codecs="hvc1"') !== "";
 }
 
-function getNextVideoSrc(): string {
-  const useHevc = supportsHevc();
-  const lastIndex = parseInt(
-    sessionStorage.getItem("heroVideoIndex") ?? "-1",
-    10
-  );
-  const nextIndex = (lastIndex + 1) % VIDEOS.length;
-  sessionStorage.setItem("heroVideoIndex", String(nextIndex));
-  const entry = VIDEOS[nextIndex];
+function getVideoSrc(index: number, useHevc: boolean): string {
+  const entry = VIDEOS[index % VIDEOS.length];
   return useHevc ? entry.hevc : entry.h264;
+}
+
+function getStartIndex(): number {
+  if (typeof window === "undefined") return 0;
+  const last = parseInt(sessionStorage.getItem("heroVideoIndex") ?? "-1", 10);
+  const next = (last + 1) % VIDEOS.length;
+  sessionStorage.setItem("heroVideoIndex", String(next));
+  return next;
 }
 
 export default function HeroVideo() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState<"A" | "B">("A");
-  const [src, setSrc] = useState<string | null>(null);
+  const hevcRef = useRef(false);
+  const videoIndexRef = useRef(0);
+  const [srcA, setSrcA] = useState<string | null>(null);
+  const [srcB, setSrcB] = useState<string | null>(null);
 
-  // Pick video on mount (client only)
+  // Initialize on mount
   useEffect(() => {
-    setSrc(getNextVideoSrc());
+    hevcRef.current = supportsHevc();
+    const startIdx = getStartIndex();
+    videoIndexRef.current = startIdx;
+    setSrcA(getVideoSrc(startIdx, hevcRef.current));
+    // Preload next video into B
+    setSrcB(getVideoSrc(startIdx + 1, hevcRef.current));
   }, []);
 
-  // Set up crossfade loop once src and refs are ready
+  // Advance to next video: swap active, preload the one after next
+  const advanceVideo = useCallback((fromLabel: "A" | "B") => {
+    videoIndexRef.current += 1;
+    const nextLabel = fromLabel === "A" ? "B" : "A";
+    setActiveVideo(nextLabel);
+
+    // Preload the video after the one about to play
+    const preloadIdx = videoIndexRef.current + 1;
+    const preloadSrc = getVideoSrc(preloadIdx, hevcRef.current);
+    if (fromLabel === "A") {
+      // B is about to play, preload into A for next transition
+      setTimeout(() => setSrcA(preloadSrc), 1500);
+    } else {
+      setTimeout(() => setSrcB(preloadSrc), 1500);
+    }
+  }, []);
+
+  // Set up crossfade listeners
   useEffect(() => {
-    if (!src) return;
+    if (!srcA || !srcB) return;
     const videoA = videoARef.current;
     const videoB = videoBRef.current;
     if (!videoA || !videoB) return;
 
     const CROSSFADE_TIME = 1.0;
 
-    const handleTimeUpdate = (
+    const handleNearEnd = (
       current: HTMLVideoElement,
       next: HTMLVideoElement,
       currentLabel: "A" | "B"
@@ -59,30 +85,34 @@ export default function HeroVideo() {
       ) {
         next.currentTime = 0;
         next.play().catch(() => {});
-        setActiveVideo(currentLabel === "A" ? "B" : "A");
+        advanceVideo(currentLabel);
       }
     };
 
-    const onA = () => handleTimeUpdate(videoA, videoB, "A");
-    const onB = () => handleTimeUpdate(videoB, videoA, "B");
+    const onA = () => handleNearEnd(videoA, videoB, "A");
+    const onB = () => handleNearEnd(videoB, videoA, "B");
 
     videoA.addEventListener("timeupdate", onA);
     videoB.addEventListener("timeupdate", onB);
 
-    // Ensure video A starts playing
-    videoA.play().catch(() => {});
+    // Start the active video
+    if (activeVideo === "A") {
+      videoA.play().catch(() => {});
+    } else {
+      videoB.play().catch(() => {});
+    }
 
     return () => {
       videoA.removeEventListener("timeupdate", onA);
       videoB.removeEventListener("timeupdate", onB);
     };
-  }, [src]);
+  }, [srcA, srcB, advanceVideo, activeVideo]);
 
   return (
     <div className="video-container absolute inset-0 overflow-hidden">
       <video
         ref={videoARef}
-        src={src ?? undefined}
+        src={srcA ?? undefined}
         muted
         playsInline
         autoPlay
@@ -92,7 +122,7 @@ export default function HeroVideo() {
       />
       <video
         ref={videoBRef}
-        src={src ?? undefined}
+        src={srcB ?? undefined}
         muted
         playsInline
         className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-[1000ms] ${

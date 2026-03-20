@@ -55,7 +55,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="inicio"
-        className="relative h-screen flex items-end justify-center overflow-hidden pb-24 md:pb-32 bg-black"
+        className="relative h-screen flex items-end justify-center overflow-hidden pb-24 md:pb-32"
       >
         <HeroVideo />
         <div className="relative z-10 text-center px-6 max-w-3xl">
