@@ -78,6 +78,8 @@ export default function HeroVideo() {
           activeVideo === "B" ? "opacity-100" : "opacity-0"
         }`}
       />
+      {/* Gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
     </div>
   );
 }
