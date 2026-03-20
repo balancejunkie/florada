@@ -5,10 +5,40 @@ import FadeInSection from "@/components/FadeInSection";
 
 const WHATSAPP_NUMBER = "5562984136020";
 const WHATSAPP_MSG = encodeURIComponent(
-  "Ola! Vim pelo site da Florada Fonte de Mel e gostaria de saber mais sobre o mel do cerrado. 🍯"
+  "Olá! Vim pelo site da Florada Fonte de Mel e gostaria de saber mais sobre o mel do cerrado. 🍯"
 );
 
 const galleryImages = [
+  {
+    src: "/images/gallery/black and white old picture of mom in her early days beekeeping .jpg",
+    alt: "Lucimar jovem nos primeiros dias com as abelhas",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/mom holding a large honey comb filled with bees.jpg",
+    alt: "Lucimar segurando favo de mel cheio de abelhas",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/bee beard stunt picture of mom.jpg",
+    alt: "Lucimar com barba de abelhas — demonstração de confiança",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/florada fonte de mel honey jar in hand macro.jpg",
+    alt: "Pote de mel puro na mão contra o cerrado",
+    span: "col-span-2",
+    aspect: "aspect-[2/1]",
+  },
+  {
+    src: "/images/gallery/mom holding a large honey comb filled with bees different angle.jpg",
+    alt: "Lucimar no apiário com favo de mel",
+    span: "",
+    aspect: "aspect-square",
+  },
   {
     src: "/images/gallery/our honey jar with flowers.jpg",
     alt: "Pote de mel Florada com flores secas",
@@ -16,44 +46,8 @@ const galleryImages = [
     aspect: "aspect-[3/4]",
   },
   {
-    src: "/images/gallery/florada fonte de mel honey jar in hand macro.jpg",
-    alt: "Pote de mel puro na mao contra o cerrado",
-    span: "",
-    aspect: "aspect-[3/4]",
-  },
-  {
     src: "/images/gallery/honey jar  lake background.jpg",
     alt: "Potes de mel Florada com lago ao fundo",
-    span: "",
-    aspect: "aspect-[3/4]",
-  },
-  {
-    src: "/images/gallery/several honey jars together.jpg",
-    alt: "Varios potes de mel Florada na prateleira",
-    span: "col-span-2",
-    aspect: "aspect-[2/1]",
-  },
-  {
-    src: "/images/gallery/bee beard stunt picture of mom.jpg",
-    alt: "Lucimar com barba de abelhas — demonstracao de confianca",
-    span: "",
-    aspect: "aspect-square",
-  },
-  {
-    src: "/images/gallery/mom holding a large honey comb filled with bees different angle.jpg",
-    alt: "Lucimar segurando favo de mel com abelhas",
-    span: "",
-    aspect: "aspect-[3/4]",
-  },
-  {
-    src: "/images/gallery/mom holding a large honey comb filled with bees.jpg",
-    alt: "Lucimar no apiario com favo de mel",
-    span: "",
-    aspect: "aspect-[3/4]",
-  },
-  {
-    src: "/images/gallery/honey jar .jpg",
-    alt: "Pote de mel Florada Fonte de Mel",
     span: "",
     aspect: "aspect-[3/4]",
   },
@@ -71,18 +65,10 @@ export default function Home() {
       >
         <HeroVideo />
         <div className="relative z-10 text-center px-6 max-w-3xl">
-          <Image
-            src="/images/logo/logo.png"
-            alt="Florada Fonte de Mel"
-            width={120}
-            height={120}
-            className="mx-auto mb-6 drop-shadow-2xl"
-            priority
-          />
           <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
             Florada Fonte de Mel
           </h1>
-          <p className="text-xl md:text-2xl text-honey/90 mt-3 font-medium drop-shadow-md">
+          <p className="font-accent text-2xl md:text-3xl text-honey/90 mt-3 drop-shadow-md">
             Mel puro do cerrado goiano
           </p>
           <a
@@ -106,7 +92,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── NOSSA HISTORIA ─── */}
+      {/* ─── NOSSA HISTÓRIA ─── */}
       <section id="historia" className="py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <FadeInSection>
@@ -114,7 +100,7 @@ export default function Home() {
               Desde os anos 80
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
-              Nossa Historia
+              Nossa História
             </h2>
             <div className="w-16 h-1 bg-honey rounded-full mb-12" />
           </FadeInSection>
@@ -137,20 +123,20 @@ export default function Home() {
                 Nascida no campo, criada entre abelhas
               </h3>
               <p className="text-earth-light leading-relaxed text-lg">
-                Lucimar nasceu na fazenda em Goias, filha de desbravadores que
+                Lucimar nasceu na fazenda em Goiás, filha de desbravadores que
                 vieram de Minas com a cara e a coragem. Aos 18 anos, numa noite
                 de &ldquo;melar&rdquo; no mato, ouviu o som das abelhas e nunca
                 mais se separou delas.
               </p>
               <p className="text-earth-light leading-relaxed text-lg">
-                O que comecou como encantamento virou profissao, sustento e
-                missao de vida. Ha mais de 40 anos, Lucimar cuida das abelhas
+                O que começou como encantamento virou profissão, sustento e
+                missão de vida. Há mais de 40 anos, Lucimar cuida das abelhas
                 africanizadas do cerrado — colhendo mel de flores nativas como
-                cipozinho, acapeixe e angico.
+                cipozinho, açapeixe e angico.
               </p>
               <blockquote className="border-l-4 border-honey pl-4 italic text-forest font-accent text-xl">
-                &ldquo;Parece que elas nao me deixam. Se eu boto uma caixa no
-                chao, quando eu volto ja tem um enxame dentro.&rdquo;
+                &ldquo;Parece que elas não me deixam. Se eu boto uma caixa no
+                chão, quando eu volto já tem um enxame dentro.&rdquo;
               </blockquote>
             </FadeInSection>
           </div>
@@ -162,17 +148,17 @@ export default function Home() {
                 Sem abelha, sem vida
               </h3>
               <p className="text-earth-light leading-relaxed text-lg">
-                As abelhas sao responsaveis por 70% de toda a polinizacao no
-                planeta. O mel que produzem e a menor das suas contribuicoes —
-                o verdadeiro presente e a vida que sustentam em cada flor
+                As abelhas são responsáveis por 70% de toda a polinização no
+                planeta. O mel que produzem é a menor das suas contribuições —
+                o verdadeiro presente é a vida que sustentam em cada flor
                 visitada.
               </p>
               <p className="text-earth-light leading-relaxed text-lg">
                 Cada pote de mel carrega a assinatura da florada — a cor, o
                 sabor e o aroma mudam conforme a origem floral. Mel de cipozinho
-                e claro e delicado. Mel de flores mistas do cerrado e escuro e
-                encorpado. As abelhas sao fieis: uma vez que escolhem uma flor,
-                nao mudam ate esgotar a fonte.
+                é claro e delicado. Mel de flores mistas do cerrado é escuro e
+                encorpado. As abelhas são fiéis: uma vez que escolhem uma flor,
+                não mudam até esgotar a fonte.
               </p>
               <div className="flex gap-8 pt-4">
                 <div className="text-center">
@@ -187,14 +173,14 @@ export default function Home() {
                   <span className="block font-display text-3xl font-bold text-honey">
                     3
                   </span>
-                  <span className="text-sm text-earth-light">geracoes</span>
+                  <span className="text-sm text-earth-light">gerações</span>
                 </div>
                 <div className="text-center">
                   <span className="block font-display text-3xl font-bold text-honey">
                     70%
                   </span>
                   <span className="text-sm text-earth-light">
-                    da polinizacao
+                    da polinização
                   </span>
                 </div>
               </div>
@@ -219,7 +205,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           <FadeInSection>
             <p className="font-accent text-honey text-xl mb-2">
-              Do apiario ao pote
+              Do apiário ao pote
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
               Galeria
@@ -248,7 +234,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ─── NA MIDIA ─── */}
+      {/* ─── NA MÍDIA ─── */}
       <section id="midia" className="py-24 md:py-32">
         <div className="max-w-6xl mx-auto px-6">
           <FadeInSection>
@@ -256,73 +242,51 @@ export default function Home() {
               Florada no mundo
             </p>
             <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
-              Na Midia
+              Na Mídia
             </h2>
             <div className="w-16 h-1 bg-honey rounded-full mb-12" />
           </FadeInSection>
 
           <div className="grid md:grid-cols-2 gap-12">
-            {/* Agrovivendo interview — REPLACE VIDEO_ID with actual YouTube ID */}
+            {/* Agrovivendo interview */}
             <FadeInSection>
-              <a
-                href="https://www.youtube.com/@Agrovivendo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl overflow-hidden shadow-xl bg-earth group hover:shadow-2xl transition-shadow duration-300"
-              >
-                <div className="relative w-full aspect-video overflow-hidden">
-                  <Image
-                    src="/images/about/auleo_top_down_view_of_honeycomb_with_golden_honey_dripping_slo_402d86d1-7d95-4e10-9d7e-7f349f915e30.png"
-                    alt="Agrovivendo — Florada Fonte de Mel"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-earth">
+                <div className="relative w-full aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/DIrEm8kbQtA"
+                    title="Agrovivendo — Florada Fonte de Mel"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#1A4D2E">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
                 <div className="p-6">
                   <span className="text-honey font-accent text-lg">
                     Agrovivendo
                   </span>
                   <h3 className="font-display text-xl font-semibold text-cream mt-1">
-                    A historia da Florada Fonte de Mel
+                    A história da Florada Fonte de Mel
                   </h3>
                   <p className="text-cream/70 mt-2 text-sm leading-relaxed">
-                    Entrevista completa com Lucimar e Aurelio sobre mais de 40
-                    anos de apicultura no cerrado goiano, tradicao familiar e a
-                    uniao entre natureza e tecnologia.
+                    Entrevista completa com Lucimar e Aurélio sobre mais de 40
+                    anos de apicultura no cerrado goiano, tradição familiar e a
+                    união entre natureza e tecnologia.
                   </p>
                 </div>
-              </a>
+              </div>
             </FadeInSection>
 
             {/* TeslaVision — "Honey From the Future" */}
             <FadeInSection>
-              <a
-                href="https://www.notateslaapp.com/news/3260/tesla-announces-winner-of-teslavision-contest-winning-video-behind-the-scenes-look"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block rounded-2xl overflow-hidden shadow-xl bg-earth group hover:shadow-2xl transition-shadow duration-300"
-              >
-                <div className="relative w-full aspect-video overflow-hidden">
-                  <Image
-                    src="/images/about/auleo_honey_bee_covered in honey_mid-flight_with_tiny_golden_honey_droplet_pure__9e98076d-9619-4aeb-a41a-5eea128fe1bb.png"
-                    alt="Honey From the Future — TeslaVision"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+              <div className="rounded-2xl overflow-hidden shadow-xl bg-earth">
+                <div className="relative w-full aspect-video">
+                  <iframe
+                    src="https://www.youtube.com/embed/Yl8WSyjp0T4"
+                    title="Honey From the Future — TeslaVision Contest"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
                   />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
-                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#1A4D2E">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                  </div>
                 </div>
                 <div className="p-6">
                   <span className="text-honey font-accent text-lg">
@@ -332,12 +296,12 @@ export default function Home() {
                     Vencedor global — &ldquo;Honey From the Future&rdquo;
                   </h3>
                   <p className="text-cream/70 mt-2 text-sm leading-relaxed">
-                    O video que uniu abelhas, cerrado e a Cybertruck, vencendo o
-                    concurso mundial da Tesla com a forca da comunidade
+                    O vídeo que uniu abelhas, cerrado e a Cybertruck, vencendo o
+                    concurso mundial da Tesla com a força da comunidade
                     brasileira.
                   </p>
                 </div>
-              </a>
+              </div>
             </FadeInSection>
           </div>
         </div>
@@ -357,8 +321,8 @@ export default function Home() {
                   Entre em contato
                 </h2>
                 <p className="text-cream/80 text-lg leading-relaxed mb-8 max-w-md">
-                  Nosso mel e produzido artesanalmente em Anapolis, Goias, e
-                  esta disponivel para retirada ou entrega. Fale conosco pelo
+                  Nosso mel é produzido artesanalmente em Anápolis, Goiás, e
+                  está disponível para retirada ou entrega. Fale conosco pelo
                   WhatsApp.
                 </p>
                 <a
@@ -383,10 +347,10 @@ export default function Home() {
               <div className="space-y-8">
                 <div>
                   <h3 className="font-display text-xl font-semibold text-honey mb-3">
-                    Localizacao
+                    Localização
                   </h3>
                   <p className="text-cream/80 leading-relaxed">
-                    Anapolis — GO
+                    Anápolis — GO
                   </p>
                 </div>
                 <div>

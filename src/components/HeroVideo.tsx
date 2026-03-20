@@ -1,11 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useMemo } from "react";
+
+const VIDEOS = ["/videos/hero-loop-web.mp4", "/videos/hero-loop-2.mp4"];
 
 export default function HeroVideo() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState<"A" | "B">("A");
+
+  // Pick a random video on each page load
+  const videoSrc = useMemo(
+    () => VIDEOS[Math.floor(Math.random() * VIDEOS.length)],
+    []
+  );
 
   useEffect(() => {
     const videoA = videoARef.current;
@@ -45,7 +53,7 @@ export default function HeroVideo() {
     <div className="video-container absolute inset-0 overflow-hidden">
       <video
         ref={videoARef}
-        src="/videos/hero-loop-web.mp4"
+        src={videoSrc}
         muted
         playsInline
         autoPlay
@@ -55,7 +63,7 @@ export default function HeroVideo() {
       />
       <video
         ref={videoBRef}
-        src="/videos/hero-loop-web.mp4"
+        src={videoSrc}
         muted
         playsInline
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${

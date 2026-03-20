@@ -23,22 +23,22 @@ const caveat = Caveat({
 export const metadata: Metadata = {
   title: "Florada Fonte de Mel — Mel puro do cerrado goiano",
   description:
-    "Mel artesanal de flores nativas do cerrado, produzido com amor ha mais de 40 anos em Goias. Florada Fonte de Mel — tradicao, natureza e vida.",
+    "Mel artesanal de flores nativas do cerrado, produzido com amor há mais de 40 anos em Goiás. Florada Fonte de Mel — tradição, natureza e vida.",
   keywords: [
     "mel",
     "mel puro",
     "mel do cerrado",
     "apicultura",
-    "Goias",
+    "Goiás",
     "mel artesanal",
     "Florada Fonte de Mel",
     "flores do cerrado",
     "abelhas",
-    "Anapolis",
+    "Anápolis",
   ],
   openGraph: {
     title: "Florada Fonte de Mel",
-    description: "Mel puro do cerrado goiano — tradicao de mais de 40 anos.",
+    description: "Mel puro do cerrado goiano — tradição de mais de 40 anos.",
     locale: "pt_BR",
     type: "website",
   },

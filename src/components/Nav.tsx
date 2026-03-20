@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const links = [
-  { href: "#inicio", label: "Inicio" },
-  { href: "#historia", label: "Nossa Historia" },
+  { href: "#inicio", label: "Início" },
+  { href: "#historia", label: "Nossa História" },
   { href: "#galeria", label: "Galeria" },
-  { href: "#midia", label: "Na Midia" },
+  { href: "#midia", label: "Na Mídia" },
   { href: "#contato", label: "Contato" },
 ];
 
