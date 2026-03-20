@@ -1,19 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState, useMemo } from "react";
-
-const VIDEOS = ["/videos/hero-loop-web.mp4", "/videos/hero-loop-2.mp4"];
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroVideo() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState<"A" | "B">("A");
-
-  // Pick a random video on each page load
-  const videoSrc = useMemo(
-    () => VIDEOS[Math.floor(Math.random() * VIDEOS.length)],
-    []
-  );
+  const videoSrc = "/videos/hero-loop-web.mp4";
 
   useEffect(() => {
     const videoA = videoARef.current;
