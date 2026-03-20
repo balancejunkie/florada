@@ -86,7 +86,7 @@ export default function HeroVideo() {
         muted
         playsInline
         autoPlay
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
+        className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "A" ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -95,7 +95,7 @@ export default function HeroVideo() {
         src={src ?? undefined}
         muted
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
+        className={`absolute inset-0 w-full h-full object-contain md:object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "B" ? "opacity-100" : "opacity-0"
         }`}
       />
