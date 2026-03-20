@@ -87,7 +87,7 @@ export default function Home() {
       </section>
 
       {/* NOSSA HISTÓRIA */}
-      <section id="historia" className="py-24 md:py-32">
+      <section id="historia" className="py-24 md:py-32 bg-cream">
         <div className="max-w-6xl mx-auto px-6">
           <FadeInSection>
             <p className="font-accent text-honey text-xl mb-2">
@@ -218,7 +218,7 @@ export default function Home() {
       </section>
 
       {/* NA MÍDIA */}
-      <section id="midia" className="py-24 md:py-32">
+      <section id="midia" className="py-24 md:py-32 bg-cream">
         <div className="max-w-6xl mx-auto px-6">
           <FadeInSection>
             <p className="font-accent text-honey text-xl mb-2">
