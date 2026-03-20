@@ -86,13 +86,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Ribbon to blend hero video edge into content */}
-      <div
-        id="hero-ribbon"
-        className="h-20 bg-gradient-to-b to-cream pointer-events-none"
-        style={{ background: `linear-gradient(to bottom, var(--ribbon-color, #FDF8F0), #FDF8F0)` }}
-      />
-
       {/* NOSSA HISTÓRIA */}
       <section id="historia" className="py-24 md:py-32 bg-cream">
         <div className="max-w-6xl mx-auto px-6">
