@@ -2,11 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 
+// First visit shows video 1 (new cooler one), subsequent reloads alternate
+const VIDEOS = ["/videos/hero-loop-2.mp4", "/videos/hero-loop-web.mp4"];
+
+function getNextVideo(): string {
+  if (typeof window === "undefined") return VIDEOS[0];
+  const lastIndex = parseInt(sessionStorage.getItem("heroVideoIndex") ?? "-1", 10);
+  const nextIndex = (lastIndex + 1) % VIDEOS.length;
+  sessionStorage.setItem("heroVideoIndex", String(nextIndex));
+  return VIDEOS[nextIndex];
+}
+
 export default function HeroVideo() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState<"A" | "B">("A");
-  const videoSrc = "/videos/hero-loop-web.mp4";
+  const [videoSrc, setVideoSrc] = useState(VIDEOS[0]);
+
+  useEffect(() => {
+    setVideoSrc(getNextVideo());
+  }, []);
 
   useEffect(() => {
     const videoA = videoARef.current;

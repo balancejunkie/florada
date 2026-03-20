@@ -21,6 +21,7 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://floradamel.com"),
   title: "Florada Fonte de Mel — Mel puro do cerrado goiano",
   description:
     "Mel artesanal de flores nativas do cerrado, produzido com amor há mais de 40 anos em Goiás. Florada Fonte de Mel — tradição, natureza e vida.",
@@ -36,11 +37,23 @@ export const metadata: Metadata = {
     "abelhas",
     "Anápolis",
   ],
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     title: "Florada Fonte de Mel",
     description: "Mel puro do cerrado goiano — tradição de mais de 40 anos.",
     locale: "pt_BR",
     type: "website",
+    images: [
+      {
+        url: "/opengraph-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Florada Fonte de Mel — Mel puro do cerrado goiano",
+      },
+    ],
   },
 };
 
