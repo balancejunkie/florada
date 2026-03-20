@@ -19,7 +19,7 @@ html {
 }
 
 body {
-  background: #000000;
+  background: var(--color-cream);
   color: var(--color-earth);
 }
 

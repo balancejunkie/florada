@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 
 // [hevc 4K original, h264 4K fallback]
 const VIDEOS = [
@@ -27,15 +27,78 @@ function getNextVideoSrc(): string {
   return useHevc ? entry.hevc : entry.h264;
 }
 
+/** Sample the average color from a strip of pixels in a video frame */
+function sampleVideoColor(
+  video: HTMLVideoElement,
+  position: "top" | "bottom"
+): string | null {
+  try {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx || video.videoWidth === 0) return null;
+
+    canvas.width = video.videoWidth;
+    canvas.height = video.videoHeight;
+    ctx.drawImage(video, 0, 0);
+
+    // Sample a horizontal strip (10px tall) at top or bottom
+    const y = position === "top" ? 0 : video.videoHeight - 10;
+    const imageData = ctx.getImageData(0, y, video.videoWidth, 10);
+    const data = imageData.data;
+
+    let r = 0, g = 0, b = 0, count = 0;
+    // Sample every 40th pixel for speed
+    for (let i = 0; i < data.length; i += 4 * 40) {
+      r += data[i];
+      g += data[i + 1];
+      b += data[i + 2];
+      count++;
+    }
+    if (count === 0) return null;
+
+    r = Math.round(r / count);
+    g = Math.round(g / count);
+    b = Math.round(b / count);
+
+    return `rgb(${r},${g},${b})`;
+  } catch {
+    return null;
+  }
+}
+
+function setThemeColor(color: string) {
+  let meta = document.querySelector('meta[name="theme-color"]');
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute("name", "theme-color");
+    document.head.appendChild(meta);
+  }
+  meta.setAttribute("content", color);
+}
+
 export default function HeroVideo() {
   const videoARef = useRef<HTMLVideoElement>(null);
   const videoBRef = useRef<HTMLVideoElement>(null);
   const [activeVideo, setActiveVideo] = useState<"A" | "B">("A");
   const [src, setSrc] = useState<string | null>(null);
+  const colorSampled = useRef(false);
 
   // Pick video on mount (client only)
   useEffect(() => {
     setSrc(getNextVideoSrc());
+  }, []);
+
+  // Sample video edge colors once it starts playing
+  const sampleColors = useCallback((video: HTMLVideoElement) => {
+    if (colorSampled.current) return;
+    colorSampled.current = true;
+
+    const topColor = sampleVideoColor(video, "top");
+    if (topColor) {
+      setThemeColor(topColor);
+      // Also set body bg to match for Safari bottom bar
+      document.body.style.backgroundColor = topColor;
+    }
   }, []);
 
   // Set up crossfade loop once src and refs are ready
@@ -63,6 +126,10 @@ export default function HeroVideo() {
       }
     };
 
+    // Sample colors once video has a frame
+    const onPlaying = () => sampleColors(videoA);
+    videoA.addEventListener("playing", onPlaying, { once: true });
+
     const onA = () => handleTimeUpdate(videoA, videoB, "A");
     const onB = () => handleTimeUpdate(videoB, videoA, "B");
 
@@ -73,10 +140,11 @@ export default function HeroVideo() {
     videoA.play().catch(() => {});
 
     return () => {
+      videoA.removeEventListener("playing", onPlaying);
       videoA.removeEventListener("timeupdate", onA);
       videoB.removeEventListener("timeupdate", onB);
     };
-  }, [src]);
+  }, [src, sampleColors]);
 
   return (
     <div className="video-container absolute inset-0 overflow-hidden">
@@ -86,6 +154,7 @@ export default function HeroVideo() {
         muted
         playsInline
         autoPlay
+        crossOrigin="anonymous"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "A" ? "opacity-100" : "opacity-0"
         }`}
@@ -95,6 +164,7 @@ export default function HeroVideo() {
         src={src ?? undefined}
         muted
         playsInline
+        crossOrigin="anonymous"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "B" ? "opacity-100" : "opacity-0"
         }`}

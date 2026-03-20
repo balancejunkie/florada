@@ -86,6 +86,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gradient ribbon to blend hero video into content */}
+      <div className="h-24 -mt-24 relative z-10 bg-gradient-to-b from-transparent to-cream pointer-events-none" />
+
       {/* NOSSA HISTÓRIA */}
       <section id="historia" className="py-24 md:py-32 bg-cream">
         <div className="max-w-6xl mx-auto px-6">
