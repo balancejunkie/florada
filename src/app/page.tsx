@@ -59,10 +59,10 @@ export default function Home() {
       >
         <HeroVideo />
         <div className="relative z-10 text-center px-6 max-w-3xl">
-          <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.8)]">
             {t.hero.title}
           </h1>
-          <p className="font-accent text-2xl md:text-3xl text-honey/90 mt-3 drop-shadow-md">
+          <p className="font-accent text-2xl md:text-3xl text-honey/90 mt-3 [text-shadow:0_2px_8px_rgba(0,0,0,0.7)]">
             {t.hero.subtitle}
           </p>
           <a
