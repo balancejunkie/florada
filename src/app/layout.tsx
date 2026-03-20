@@ -21,6 +21,13 @@ const caveat = Caveat({
   display: "swap",
 });
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover" as const,
+  themeColor: "#000000",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://floradamel.com"),
   title: "Florada Fonte de Mel | Mel puro do cerrado goiano",

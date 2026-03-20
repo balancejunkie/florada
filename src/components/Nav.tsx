@@ -25,6 +25,7 @@ export default function Nav() {
 
   return (
     <nav
+      style={{ paddingTop: `env(safe-area-inset-top, 0px)` }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? "bg-forest/95 backdrop-blur-md shadow-lg py-3"
