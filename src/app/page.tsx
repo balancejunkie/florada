@@ -55,7 +55,7 @@ export default function Home() {
       {/* HERO */}
       <section
         id="inicio"
-        className="relative h-screen flex items-end justify-center overflow-hidden pb-24 md:pb-32 bg-black"
+        className="relative h-screen flex items-end justify-center overflow-hidden pb-24 md:pb-32"
       >
         <HeroVideo />
         <div className="relative z-10 text-center px-6 max-w-3xl">
@@ -86,8 +86,12 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Gradient ribbon to blend hero video into content */}
-      <div className="h-24 -mt-24 relative z-10 bg-gradient-to-b from-transparent to-cream pointer-events-none" />
+      {/* Ribbon to blend hero video edge into content */}
+      <div
+        id="hero-ribbon"
+        className="h-20 bg-gradient-to-b to-cream pointer-events-none"
+        style={{ background: `linear-gradient(to bottom, var(--ribbon-color, #FDF8F0), #FDF8F0)` }}
+      />
 
       {/* NOSSA HISTÓRIA */}
       <section id="historia" className="py-24 md:py-32 bg-cream">

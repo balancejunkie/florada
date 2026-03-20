@@ -96,8 +96,14 @@ export default function HeroVideo() {
     const topColor = sampleVideoColor(video, "top");
     if (topColor) {
       setThemeColor(topColor);
-      // Also set body bg to match for Safari bottom bar
-      document.body.style.backgroundColor = topColor;
+    }
+
+    const bottomColor = sampleVideoColor(video, "bottom");
+    if (bottomColor) {
+      const ribbon = document.getElementById("hero-ribbon");
+      if (ribbon) {
+        ribbon.style.setProperty("--ribbon-color", bottomColor);
+      }
     }
   }, []);
 
@@ -154,7 +160,6 @@ export default function HeroVideo() {
         muted
         playsInline
         autoPlay
-        crossOrigin="anonymous"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "A" ? "opacity-100" : "opacity-0"
         }`}
@@ -164,7 +169,6 @@ export default function HeroVideo() {
         src={src ?? undefined}
         muted
         playsInline
-        crossOrigin="anonymous"
         className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "B" ? "opacity-100" : "opacity-0"
         }`}
