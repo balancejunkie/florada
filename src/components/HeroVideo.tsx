@@ -12,8 +12,7 @@ export default function HeroVideo() {
     const videoB = videoBRef.current;
     if (!videoA || !videoB) return;
 
-    // Crossfade technique: when one video nears the end, fade in the other
-    const CROSSFADE_TIME = 0.8; // seconds before end to start crossfade
+    const CROSSFADE_TIME = 1.0;
 
     const handleTimeUpdate = (
       current: HTMLVideoElement,
@@ -50,7 +49,7 @@ export default function HeroVideo() {
         muted
         playsInline
         autoPlay
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[800ms] ${
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "A" ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -59,12 +58,12 @@ export default function HeroVideo() {
         src="/videos/hero-loop-web.mp4"
         muted
         playsInline
-        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[800ms] ${
+        className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1000ms] ${
           activeVideo === "B" ? "opacity-100" : "opacity-0"
         }`}
       />
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40" />
+      {/* Gradient overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-black/20" />
     </div>
   );
 }

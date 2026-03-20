@@ -36,8 +36,10 @@ yarn-error.log*
 # large video source files
 *.webp
 public/videos/hero-loop.mp4
+public/videos/openart-video_*
 
 # instagram originals (low-res)
+public/images/instagram/
 public/images/gallery/instagram/
 
 # vercel

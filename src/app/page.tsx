@@ -3,6 +3,62 @@ import Nav from "@/components/Nav";
 import HeroVideo from "@/components/HeroVideo";
 import FadeInSection from "@/components/FadeInSection";
 
+const WHATSAPP_NUMBER = "5562984136020";
+const WHATSAPP_MSG = encodeURIComponent(
+  "Ola! Vim pelo site da Florada Fonte de Mel e gostaria de saber mais sobre o mel do cerrado. 🍯"
+);
+
+const galleryImages = [
+  {
+    src: "/images/gallery/our honey jar with flowers.jpg",
+    alt: "Pote de mel Florada com flores secas",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/florada fonte de mel honey jar in hand macro.jpg",
+    alt: "Pote de mel puro na mao contra o cerrado",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/honey jar  lake background.jpg",
+    alt: "Potes de mel Florada com lago ao fundo",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/several honey jars together.jpg",
+    alt: "Varios potes de mel Florada na prateleira",
+    span: "col-span-2",
+    aspect: "aspect-[2/1]",
+  },
+  {
+    src: "/images/gallery/bee beard stunt picture of mom.jpg",
+    alt: "Lucimar com barba de abelhas — demonstracao de confianca",
+    span: "",
+    aspect: "aspect-square",
+  },
+  {
+    src: "/images/gallery/mom holding a large honey comb filled with bees different angle.jpg",
+    alt: "Lucimar segurando favo de mel com abelhas",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/mom holding a large honey comb filled with bees.jpg",
+    alt: "Lucimar no apiario com favo de mel",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+  {
+    src: "/images/gallery/honey jar .jpg",
+    alt: "Pote de mel Florada Fonte de Mel",
+    span: "",
+    aspect: "aspect-[3/4]",
+  },
+];
+
 export default function Home() {
   return (
     <>
@@ -11,22 +67,22 @@ export default function Home() {
       {/* ─── HERO ─── */}
       <section
         id="inicio"
-        className="relative h-screen flex items-center justify-center overflow-hidden"
+        className="relative h-screen flex items-end justify-center overflow-hidden pb-24 md:pb-32"
       >
         <HeroVideo />
         <div className="relative z-10 text-center px-6 max-w-3xl">
           <Image
-            src="/images/logo/openart-6b7cce94e14f41469d0171e64856d123_raw.png"
+            src="/images/logo/logo.png"
             alt="Florada Fonte de Mel"
-            width={140}
-            height={140}
-            className="mx-auto mb-8 drop-shadow-2xl"
+            width={120}
+            height={120}
+            className="mx-auto mb-6 drop-shadow-2xl"
             priority
           />
-          <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight tracking-tight">
+          <h1 className="font-display text-4xl md:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-lg">
             Florada Fonte de Mel
           </h1>
-          <p className="font-accent text-2xl md:text-3xl text-honey mt-4">
+          <p className="text-xl md:text-2xl text-honey/90 mt-3 font-medium drop-shadow-md">
             Mel puro do cerrado goiano
           </p>
           <a
@@ -63,7 +119,7 @@ export default function Home() {
             <div className="w-16 h-1 bg-honey rounded-full mb-12" />
           </FadeInSection>
 
-          {/* Timeline — 3 generations */}
+          {/* Block 1 — Origins */}
           <div className="grid md:grid-cols-2 gap-16 items-center mb-20">
             <FadeInSection>
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -99,7 +155,7 @@ export default function Home() {
             </FadeInSection>
           </div>
 
-          {/* Bees & tradition */}
+          {/* Block 2 — Bees & Mission */}
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <FadeInSection className="space-y-6 md:order-2">
               <h3 className="font-display text-2xl md:text-3xl font-semibold text-forest">
@@ -146,8 +202,8 @@ export default function Home() {
             <FadeInSection className="md:order-1">
               <div className="relative overflow-hidden rounded-2xl shadow-xl">
                 <Image
-                  src="/images/gallery/mom holding a large honey comb filled with bees.jpg"
-                  alt="Lucimar segurando favo de mel cheio de abelhas"
+                  src="/images/about/auleo_ultra_realistic_honey_bee_in_flight_side_profile_wings_sp_d462204d-4261-4a76-8219-2bfc58b1a4ed.png"
+                  alt="Abelha em voo sobre o cerrado"
                   width={800}
                   height={800}
                   className="w-full object-cover"
@@ -172,50 +228,7 @@ export default function Home() {
           </FadeInSection>
 
           <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-            {[
-              {
-                src: "/images/gallery/our honey jar with flowers.jpg",
-                alt: "Pote de mel Florada com flores secas",
-                span: "",
-                aspect: "aspect-[3/4]",
-              },
-              {
-                src: "/images/gallery/florada fonte de mel honey jar in hand macro.jpg",
-                alt: "Pote de mel puro na mao contra o cerrado",
-                span: "",
-                aspect: "aspect-[3/4]",
-              },
-              {
-                src: "/images/gallery/honey jar  lake background.jpg",
-                alt: "Potes de mel Florada com lago ao fundo",
-                span: "",
-                aspect: "aspect-[3/4]",
-              },
-              {
-                src: "/images/gallery/several honey jars together.jpg",
-                alt: "Varios potes de mel Florada na prateleira",
-                span: "col-span-2",
-                aspect: "aspect-[2/1]",
-              },
-              {
-                src: "/images/gallery/bee beard stunt picture of mom.jpg",
-                alt: "Lucimar com barba de abelhas — demonstracao de confianca",
-                span: "",
-                aspect: "aspect-square",
-              },
-              {
-                src: "/images/gallery/mom holding a large honey comb filled with bees different angle.jpg",
-                alt: "Lucimar segurando favo de mel com abelhas",
-                span: "",
-                aspect: "aspect-[3/4]",
-              },
-              {
-                src: "/images/hero/auleo_single_honey_bee_landing_on_a_small_cluster_of_white_wild_051b22d2-4d2a-4949-a093-f2523546f073.png",
-                alt: "Abelha pousando em flores brancas silvestres",
-                span: "col-span-2",
-                aspect: "aspect-[2/1]",
-              },
-            ].map((img, i) => (
+            {galleryImages.map((img, i) => (
               <FadeInSection
                 key={i}
                 className={`gallery-item overflow-hidden rounded-xl shadow-lg ${img.span}`}
@@ -235,6 +248,101 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ─── NA MIDIA ─── */}
+      <section id="midia" className="py-24 md:py-32">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeInSection>
+            <p className="font-accent text-honey text-xl mb-2">
+              Florada no mundo
+            </p>
+            <h2 className="font-display text-4xl md:text-5xl font-bold text-forest mb-6">
+              Na Midia
+            </h2>
+            <div className="w-16 h-1 bg-honey rounded-full mb-12" />
+          </FadeInSection>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Agrovivendo interview — REPLACE VIDEO_ID with actual YouTube ID */}
+            <FadeInSection>
+              <a
+                href="https://www.youtube.com/@Agrovivendo"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden shadow-xl bg-earth group hover:shadow-2xl transition-shadow duration-300"
+              >
+                <div className="relative w-full aspect-video overflow-hidden">
+                  <Image
+                    src="/images/about/auleo_top_down_view_of_honeycomb_with_golden_honey_dripping_slo_402d86d1-7d95-4e10-9d7e-7f349f915e30.png"
+                    alt="Agrovivendo — Florada Fonte de Mel"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#1A4D2E">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <span className="text-honey font-accent text-lg">
+                    Agrovivendo
+                  </span>
+                  <h3 className="font-display text-xl font-semibold text-cream mt-1">
+                    A historia da Florada Fonte de Mel
+                  </h3>
+                  <p className="text-cream/70 mt-2 text-sm leading-relaxed">
+                    Entrevista completa com Lucimar e Aurelio sobre mais de 40
+                    anos de apicultura no cerrado goiano, tradicao familiar e a
+                    uniao entre natureza e tecnologia.
+                  </p>
+                </div>
+              </a>
+            </FadeInSection>
+
+            {/* TeslaVision — "Honey From the Future" */}
+            <FadeInSection>
+              <a
+                href="https://www.notateslaapp.com/news/3260/tesla-announces-winner-of-teslavision-contest-winning-video-behind-the-scenes-look"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden shadow-xl bg-earth group hover:shadow-2xl transition-shadow duration-300"
+              >
+                <div className="relative w-full aspect-video overflow-hidden">
+                  <Image
+                    src="/images/about/auleo_honey_bee_covered in honey_mid-flight_with_tiny_golden_honey_droplet_pure__9e98076d-9619-4aeb-a41a-5eea128fe1bb.png"
+                    alt="Honey From the Future — TeslaVision"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="w-16 h-16 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="#1A4D2E">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6">
+                  <span className="text-honey font-accent text-lg">
+                    TeslaVision Contest
+                  </span>
+                  <h3 className="font-display text-xl font-semibold text-cream mt-1">
+                    Vencedor global — &ldquo;Honey From the Future&rdquo;
+                  </h3>
+                  <p className="text-cream/70 mt-2 text-sm leading-relaxed">
+                    O video que uniu abelhas, cerrado e a Cybertruck, vencendo o
+                    concurso mundial da Tesla com a forca da comunidade
+                    brasileira.
+                  </p>
+                </div>
+              </a>
+            </FadeInSection>
+          </div>
+        </div>
+      </section>
+
       {/* ─── CONTATO / FOOTER ─── */}
       <footer id="contato" className="bg-forest text-cream py-20">
         <div className="max-w-6xl mx-auto px-6">
@@ -249,12 +357,12 @@ export default function Home() {
                   Entre em contato
                 </h2>
                 <p className="text-cream/80 text-lg leading-relaxed mb-8 max-w-md">
-                  Nosso mel e produzido artesanalmente em Goias e esta
-                  disponivel para retirada ou entrega. Fale conosco pelo
+                  Nosso mel e produzido artesanalmente em Anapolis, Goias, e
+                  esta disponivel para retirada ou entrega. Fale conosco pelo
                   WhatsApp.
                 </p>
                 <a
-                  href="https://wa.me/5562984136020"
+                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-3 bg-honey text-earth font-semibold px-8 py-4 rounded-full text-lg hover:bg-amber transition-colors duration-300 shadow-lg hover:shadow-xl"
@@ -275,11 +383,9 @@ export default function Home() {
               <div className="space-y-8">
                 <div>
                   <h3 className="font-display text-xl font-semibold text-honey mb-3">
-                    Endereco
+                    Localizacao
                   </h3>
                   <p className="text-cream/80 leading-relaxed">
-                    Rua Pintor Javae, 113
-                    <br />
                     Anapolis — GO
                   </p>
                 </div>
@@ -314,7 +420,7 @@ export default function Home() {
           {/* Bottom bar */}
           <div className="mt-16 pt-8 border-t border-cream/10 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-cream/50 text-sm">
-              &copy; 2025 Florada Fonte de Mel. Todos os direitos reservados.
+              &copy; 2026 Florada Fonte de Mel. Todos os direitos reservados.
             </p>
             <p className="font-accent text-cream/30 text-lg">
               Sem abelha, sem vida.

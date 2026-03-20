@@ -7,6 +7,7 @@ const links = [
   { href: "#inicio", label: "Inicio" },
   { href: "#historia", label: "Nossa Historia" },
   { href: "#galeria", label: "Galeria" },
+  { href: "#midia", label: "Na Midia" },
   { href: "#contato", label: "Contato" },
 ];
 
@@ -32,11 +33,12 @@ export default function Nav() {
         {/* Logo */}
         <a href="#inicio" className="flex items-center gap-3">
           <Image
-            src="/images/logo/openart-6b7cce94e14f41469d0171e64856d123_raw.png"
+            src="/images/logo/logo.png"
             alt="Florada Fonte de Mel"
             width={44}
             height={44}
-            className="rounded-sm"
+            className="drop-shadow-lg"
+            priority
           />
           <span
             className={`font-display text-lg font-semibold tracking-wide transition-colors duration-500 ${
@@ -101,7 +103,7 @@ export default function Nav() {
       {/* Mobile menu */}
       <div
         className={`md:hidden overflow-hidden transition-all duration-500 ${
-          menuOpen ? "max-h-64 opacity-100" : "max-h-0 opacity-0"
+          menuOpen ? "max-h-72 opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <div className="bg-forest/95 backdrop-blur-md px-6 py-4 flex flex-col gap-4">
