@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     "Florada Fonte de Mel",
     "flores do cerrado",
     "abelhas",
+    "Anápolis",
     "Heitoraí",
     "Itaguaru",
     "honey",
