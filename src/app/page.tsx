@@ -347,12 +347,20 @@ export default function Home() {
                   <h3 className="font-display text-xl font-semibold text-honey mb-3">
                     {t.contact.phone}
                   </h3>
-                  <a
-                    href="tel:+5562984136020"
-                    className="text-cream/80 hover:text-honey transition-colors"
-                  >
-                    (62) 98413-6020
-                  </a>
+                  <div className="flex flex-col gap-1">
+                    <a
+                      href="tel:+5562984136020"
+                      className="text-cream/80 hover:text-honey transition-colors"
+                    >
+                      (62) 98413-6020
+                    </a>
+                    <a
+                      href="tel:+556233245988"
+                      className="text-cream/80 hover:text-honey transition-colors"
+                    >
+                      (62) 3324-5988
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

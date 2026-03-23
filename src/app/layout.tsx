@@ -44,6 +44,8 @@ export const metadata: Metadata = {
     "flores do cerrado",
     "abelhas",
     "Anápolis",
+    "Heitoraí",
+    "Itaguaru",
     "honey",
     "pure honey",
     "Brazilian honey",
