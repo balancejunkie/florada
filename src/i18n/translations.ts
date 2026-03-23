@@ -28,7 +28,7 @@ export const translations = {
       block2P1:
         "As abelhas são responsáveis por 70% de toda a polinização no planeta. O mel que produzem é a menor das suas contribuições. O verdadeiro presente é a vida que sustentam em cada flor visitada.",
       block2P2:
-        "Cada pote de mel carrega a assinatura da florada. A cor, o sabor e o aroma mudam conforme a origem floral. Mel de aroeira é claro e suave. Mel de flores como aroeira, angico e açapeixe do cerrado é escuro e encorpado. As abelhas são fiéis: uma vez que escolhem uma flor, não mudam até esgotar a fonte.",
+        "Cada pote de mel carrega a assinatura da florada. A cor, o sabor e o aroma mudam conforme a origem floral. Mel de aroeira é claro e suave. Mel de flores como aroeira, angico e assa-peixe do cerrado é escuro e encorpado. As abelhas são fiéis: uma vez que escolhem uma flor, não mudam até esgotar a fonte.",
       stat1Label: "anos de apicultura",
       stat2Label: "gerações",
       stat3Label: "da polinização",
@@ -103,7 +103,7 @@ export const translations = {
       block2P1:
         "Bees are responsible for 70% of all pollination on the planet. The honey they produce is the smallest of their contributions. The true gift is the life they sustain with every flower they visit.",
       block2P2:
-        "Each jar of honey carries the signature of the bloom. The color, flavor, and aroma change according to the floral origin. Aroeira honey is light and smooth. Honey from cerrado flowers like aroeira, angico, and açapeixe is dark and full-bodied. Bees are loyal: once they choose a flower, they don\u2019t switch until the source runs out.",
+        "Each jar of honey carries the signature of the bloom. The color, flavor, and aroma change according to the floral origin. Aroeira honey is light and smooth. Honey from cerrado flowers like aroeira, angico, and assa-peixe is dark and full-bodied. Bees are loyal: once they choose a flower, they don\u2019t switch until the source runs out.",
       stat1Label: "years of beekeeping",
       stat2Label: "generations",
       stat3Label: "of pollination",

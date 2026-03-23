@@ -122,7 +122,7 @@ export default function Home() {
               <p className="text-earth-light leading-relaxed text-lg">
                 {t.story.block1P2}
               </p>
-              <blockquote className="border-l-4 border-honey pl-4 italic text-forest font-accent text-xl">
+              <blockquote className="border-l-4 border-honey pl-4 italic text-forest font-accent text-2xl">
                 {t.story.block1Quote}
               </blockquote>
             </FadeInSection>
